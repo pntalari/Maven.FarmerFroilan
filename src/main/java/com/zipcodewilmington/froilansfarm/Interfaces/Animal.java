@@ -1,7 +1,7 @@
-package com.zipcodewilmington.froilansfarm.Animals;
+package com.zipcodewilmington.froilansfarm.Interfaces;
 
 import com.zipcodewilmington.froilansfarm.Interfaces.Eater;
 import com.zipcodewilmington.froilansfarm.Interfaces.NoiseMaker;
 
-public abstract class Animal implements NoiseMaker, Eater {
+public interface Animal extends NoiseMaker, Eater {
 }

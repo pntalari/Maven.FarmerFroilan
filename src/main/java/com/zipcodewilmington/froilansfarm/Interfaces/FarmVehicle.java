@@ -1,5 +1,5 @@
 package com.zipcodewilmington.froilansfarm.Interfaces;
 
-public interface FarmVehicle {
+public interface FarmVehicle extends Vehicle {
     void operate();
 }

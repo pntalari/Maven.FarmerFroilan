@@ -1,5 +1,5 @@
 package com.zipcodewilmington.froilansfarm.Interfaces;
 
-public interface Ridable {
-    void ride();
+public interface Producer {
+    public Object yield();
 }
