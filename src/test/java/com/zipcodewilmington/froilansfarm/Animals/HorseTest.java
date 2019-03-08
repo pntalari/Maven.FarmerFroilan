@@ -30,11 +30,15 @@ public class HorseTest {
     }
 
     @Test
+    //This should be updated with person/farmer object who should invoke the ride method
     public void rideTest() {
         //Given
-
+        Boolean beforeRide = false;
         //When
+        horseObj.ride();
+        Boolean afterRide = horseObj.getHorseRidden();
         //Then
+        Assert.assertNotEquals(beforeRide,afterRide);
     }
 
 
