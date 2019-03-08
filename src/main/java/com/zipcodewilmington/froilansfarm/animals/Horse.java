@@ -15,10 +15,6 @@ public class Horse implements Animal, Ridable {
         this.isHorseFed = false;
     }
 
-    public Horse(EarCorn corn) {
-        this.horsefood = corn;
-    }
-
     public String makeNoise() {
         return "neigh!";
     }
