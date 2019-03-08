@@ -5,17 +5,17 @@ import java.util.List;
 
 public abstract class Storage<T> {
 
-    List<T> storage;
+    List<T> itemsToBeStored;
 
     public Storage() {
-        this.storage = new ArrayList<T>();
+        this.itemsToBeStored = new ArrayList<T>();
     }
 
     public void add(T toBeStored){
-        this.storage.add(toBeStored);
+        this.itemsToBeStored.add(toBeStored);
     }
 
     public void remove(T toBeRemoved){
-        this.storage.remove(toBeRemoved);
+        this.itemsToBeStored.remove(toBeRemoved);
     }
 }
