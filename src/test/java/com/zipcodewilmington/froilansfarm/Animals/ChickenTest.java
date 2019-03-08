@@ -2,7 +2,7 @@ package com.zipcodewilmington.froilansfarm.Animals;
 
 import com.zipcodewilmington.froilansfarm.Produce.EdibleEgg;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class ChickenTest {
     Chicken chickObj = new Chicken();

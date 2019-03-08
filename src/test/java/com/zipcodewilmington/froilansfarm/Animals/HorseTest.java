@@ -1,9 +1,7 @@
 package com.zipcodewilmington.froilansfarm.Animals;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
 class HorseTest {
     Horse horseObj = new Horse();
