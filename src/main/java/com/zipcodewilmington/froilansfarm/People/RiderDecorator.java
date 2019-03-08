@@ -1,13 +1,12 @@
 package com.zipcodewilmington.froilansfarm.People;
 
 import com.zipcodewilmington.froilansfarm.Interfaces.Edible;
-import com.zipcodewilmington.froilansfarm.Interfaces.Person;
 import com.zipcodewilmington.froilansfarm.Interfaces.Ridable;
 
-public class Rider extends PersonDecorator {
+public class RiderDecorator extends Person {
 
-    public Rider(Person decoratedPerson) {
-        super(decoratedPerson);
+    public RiderDecorator(Person decoratedPerson) {
+
     }
 
     void mount(Ridable thing){

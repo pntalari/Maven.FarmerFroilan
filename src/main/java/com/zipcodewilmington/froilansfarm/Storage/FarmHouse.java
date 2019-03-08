@@ -1,7 +1,6 @@
 package com.zipcodewilmington.froilansfarm.Storage;
 
-import com.zipcodewilmington.froilansfarm.Interfaces.Person;
+import com.zipcodewilmington.froilansfarm.People.Person;
 
-public class FarmHouse {
-    private java.util.List<Person> people;
+public class FarmHouse extends Storage<Person> {
 }
