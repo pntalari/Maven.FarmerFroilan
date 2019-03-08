@@ -1,5 +1,5 @@
 package com.zipcodewilmington.froilansfarm.Interfaces;
 
 public interface Eater {
-    void eat();
+    void eat(Edible food);
 }
