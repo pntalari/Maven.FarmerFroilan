@@ -1,13 +1,11 @@
 package com.zipcodewilmington.froilansfarm.Animals;
-
 import com.zipcodewilmington.froilansfarm.Produce.EdibleEgg;
 import org.junit.Assert;
 import org.junit.Test;
 
-class ChickenTest {
+public class ChickenTest {
     Chicken chickObj = new Chicken();
     EdibleEgg egg = new EdibleEgg();
-
     @Test
     void makeNoiseTest() {
         String expectedNoise = "Cock-a-doodle-do!!";
@@ -32,8 +30,8 @@ class ChickenTest {
         Assert.assertTrue(actualObj instanceof EdibleEgg);
     }
 
-    @Test
-    void eatTest() {
 
+    @Test
+    public void eatTest() {
     }
 }
