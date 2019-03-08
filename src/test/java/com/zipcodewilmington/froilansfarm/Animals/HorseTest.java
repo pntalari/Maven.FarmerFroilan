@@ -8,12 +8,9 @@ import com.zipcodewilmington.froilansfarm.Produce.EarCorn;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class HorseTest {
     Horse horseObj = new Horse();
-  //  Person personObj = new Rider();
-
+    
     @Test
    public void makeNoiseTest() {
         //Given
@@ -38,9 +35,11 @@ public class HorseTest {
     @Test
     public void rideTest() {
         //Given
-
+        Boolean beforeRide = false;
         //When
+        Boolean afterRide = horseObj.getHorseRidden();
         //Then
+        Assert.assertNotEquals(beforeRide,afterRide);
     }
 
 
