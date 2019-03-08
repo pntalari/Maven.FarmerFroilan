@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class HorseTest {
     Horse horseObj = new Horse();
-    
+
     @Test
    public void makeNoiseTest() {
         //Given
@@ -33,10 +33,12 @@ public class HorseTest {
     }
 
     @Test
+    //This should be updated with person/farmer object who should invoke the ride method
     public void rideTest() {
         //Given
         Boolean beforeRide = false;
         //When
+        horseObj.ride();
         Boolean afterRide = horseObj.getHorseRidden();
         //Then
         Assert.assertNotEquals(beforeRide,afterRide);
