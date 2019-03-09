@@ -18,8 +18,4 @@ public class CropRow {
         return null;
     }
 
-    public Crop harvestCropByName(Crop cropName) {
-        return null;
-    }
-
 }

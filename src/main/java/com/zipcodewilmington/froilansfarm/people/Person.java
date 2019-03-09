@@ -3,8 +3,13 @@ package com.zipcodewilmington.froilansfarm.people;
 import com.zipcodewilmington.froilansfarm.interfaces.Animal;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
-public abstract class Person implements Animal {
-    public abstract void eat(Edible food);
+public class Person implements Animal {
 
-    public abstract String makeNoise();
+    public void eat(Edible food) {
+
+    }
+
+    public String makeNoise() {
+        return null;
+    }
 }
