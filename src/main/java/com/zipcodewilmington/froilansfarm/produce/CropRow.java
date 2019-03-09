@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.produce;
 
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Producer;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class CropRow <T extends Crop> implements Producer {
         this.crops = crop;
     }
 
-    public int yield() {
+    public Crop yield() {
         return null;
     }
 
