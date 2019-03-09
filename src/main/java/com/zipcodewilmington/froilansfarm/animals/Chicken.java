@@ -23,7 +23,7 @@ public class Chicken implements Producer, Animal {
         return "Cock-a-doodle-do!!";
     }
 
-    public EdibleEgg yield() {
+    public int yield() {
         if(this.hasBeenFertilized){
             EdibleEgg egg = new EdibleEgg();
             return egg;

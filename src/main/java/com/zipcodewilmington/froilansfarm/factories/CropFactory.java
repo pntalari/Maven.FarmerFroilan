@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CropFactory {
+
+
+    public List<CarrotPlant> createCarrotPlant(Integer numberOfCarrotPlants){return null;}
+    public List<PotatoPlant> createPotatoPlant(Integer numberOfPotatoPlants){return null;}
+
     Integer i = 0;
 
 
@@ -25,4 +30,5 @@ public class CropFactory {
     public List<WheatStalk> createWheatStalk(Integer numberOfWheatStalks) {
         return null;
     }
+
 }
