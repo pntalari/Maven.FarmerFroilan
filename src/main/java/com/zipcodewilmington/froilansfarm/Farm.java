@@ -42,14 +42,14 @@ public class Farm {
     private Integer numberOfCarrotPlants;
 
 
-    public Farm(List<Person> farmWorkerList, Integer numberOfChickens, Integer numberOfStables, Integer numberOfFarmHouse, Integer numberOfChickenCoops, Integer numberOfHorses, Integer numberOfCropDusters, Integer numberOfTractors, Integer numberOfCropRows, Integer numberOfCornStalks, Integer numberOfWheatStalks, Integer numberOfTomatoPlants, Integer numberOfPotatoPlants, Integer numberOfCarrotPlants) {
+    public Farm(Integer numberOfChickens, Integer numberOfStables, Integer numberOfFarmHouse, Integer numberOfChickenCoops, Integer numberOfHorses, Integer numberOfCropDusters, Integer numberOfTractors, Integer numberOfCropRows, Integer numberOfCornStalks, Integer numberOfWheatStalks, Integer numberOfTomatoPlants, Integer numberOfPotatoPlants, Integer numberOfCarrotPlants) {
         fieldObj = Field.getInstance();
 
         animalFactory = new AnimalFactory();
         storageFactory = new StorageFactory();
         vehicleFactory = new VehicleFactory();
         cropFactory = new CropFactory();
-        cropRowFactory = new CropRowFactory();this.farmWorkerList = farmWorkerList;
+        cropRowFactory = new CropRowFactory();
 
         this.numberOfChickens = numberOfChickens;
         this.numberOfStables = numberOfStables;
@@ -65,6 +65,21 @@ public class Farm {
         this.numberOfPotatoPlants = numberOfPotatoPlants;
         this.numberOfCarrotPlants = numberOfCarrotPlants;
 
+        this.createFarmHouse();
+        this.createStable();
+        this.createChickenCoop();
+
+        this.createTractors();
+        this.createCropDuster();
+
+        this.createCropRows();
+
+        this.createTomatoPlant();
+        this.createWheatStalk();
+        this.createCornStalk();
+        this.createPotatoPlant();
+        this.createCarrotPlant();
+
         this.addChickensToCoop();
         this.addCropRowsToField();
         this.addHorsesToStable();
@@ -75,6 +90,18 @@ public class Farm {
     public Farm() {
 
 
+    }
+
+    public List<FarmHouse> createFarmHouse(){
+        return storageFactory.createFarmHouses(numberOfFarmHouse);
+    }
+
+    public List<Stable> createStable(){
+        return storageFactory.createStables(numberOfStables);
+    }
+
+    public List<ChickenCoop> createChickenCoop(){
+        return storageFactory.createChickenCoops(numberOfChickenCoops);
     }
 
     public List<Chicken> createChicken() {
@@ -213,9 +240,25 @@ public class Farm {
 
     }
 
-    public void addHorsesToStable()
-    {
+    public void addHorsesToStable() {
+        List<Horse> horses = this.createHorse();
+        this.stableList = this.createStable();
 
+        for (Stable s: stableList) {
+            addFourHorsesToStable(horses, s);
+        }
+    }
+
+    private void addFourHorsesToStable(List<Horse> horses, Stable s) {
+        for (int i = 0; i < 4; i++) {
+            if(horses == null){
+                break;
+            }
+            else{
+                s.addToStorage(horses.get(0));
+                horses.remove(0);
+            }
+        }
     }
 
     public void addWorkersToFarmHouse(){
@@ -229,4 +272,6 @@ public class Farm {
     public void addCropRowsToField(){
 
     }
+
+
 }

@@ -5,7 +5,6 @@ import com.zipcodewilmington.froilansfarm.people.Person;
 import java.util.List;
 
 public class FarmBuilder {
-    private List<Person> farmWorkerList;
     private Integer numberOfChickens;
     private Integer numberOfStables;
     private Integer numberOfFarmHouse;
@@ -19,11 +18,6 @@ public class FarmBuilder {
     private Integer numberOfTomatoPlants;
     private Integer numberOfPotatoPlants;
     private Integer numberOfCarrotPlants;
-
-    public FarmBuilder setFarmWorkerList(List<Person> farmWorkerList) {
-        this.farmWorkerList = farmWorkerList;
-        return this;
-    }
 
     public FarmBuilder setNumberOfChickens(Integer numberOfChickens) {
         this.numberOfChickens = numberOfChickens;
@@ -91,7 +85,7 @@ public class FarmBuilder {
     }
 
     public Farm build() {
-        return new Farm(farmWorkerList, numberOfChickens, numberOfStables, numberOfFarmHouse,
+        return new Farm(numberOfChickens, numberOfStables, numberOfFarmHouse,
                 numberOfChickenCoops, numberOfHorses, numberOfCropDusters, numberOfTractors, numberOfCropRows,
                 numberOfCornStalks, numberOfWheatStalks, numberOfTomatoPlants, numberOfPotatoPlants,
                 numberOfCarrotPlants);

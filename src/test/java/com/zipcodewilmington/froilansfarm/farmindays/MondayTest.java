@@ -2,8 +2,12 @@ package com.zipcodewilmington.froilansfarm.farmindays;
 
 import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.FarmBuilder;
+import com.zipcodewilmington.froilansfarm.animals.Horse;
 import com.zipcodewilmington.froilansfarm.people.*;
+import com.zipcodewilmington.froilansfarm.storage.Stable;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +16,15 @@ import java.util.List;
 public class MondayTest {
 
     private Farm farm;
+    private FarmWorker workerFroiln;
+    private FarmWorker workerFroilinda;
 
     @Before
     public void setUp() throws Exception {
         List<Person> farmWorkerList = new ArrayList<>();
 
-        FarmWorker workerFroiln = new FarmWorker();
-        FarmWorker workerFroilinda = new FarmWorker();
-
-        Person froilin = new FarmerDecorator(new BotanistDecorator(new RiderDecorator(workerFroiln)));
-        Person froilinda = new FarmerDecorator(new PilotDecorator(workerFroilinda));
-
-        farmWorkerList.add(froilin);
-        farmWorkerList.add(froilinda);
+        workerFroiln = new FarmWorker();
+        workerFroilinda = new FarmWorker();
 
         Integer numberOfChickens = 15;
         Integer numberOfStables = 3;
@@ -40,8 +40,7 @@ public class MondayTest {
         Integer numberOfPotatoPlants = 50;
         Integer numberOfCarrotPlants = 50;
 
-        farm = new FarmBuilder().setFarmWorkerList(farmWorkerList)
-                .setNumberOfCarrotPlants(numberOfCarrotPlants)
+        farm = new FarmBuilder().setNumberOfCarrotPlants(numberOfCarrotPlants)
                 .setNumberOfChickenCoops(numberOfChickenCoops)
                 .setNumberOfChickens(numberOfChickens)
                 .setNumberOfCornStalks(numberOfCornStalks)
@@ -55,6 +54,41 @@ public class MondayTest {
                 .setNumberOfTractors(numberOfTractors)
                 .setNumberOfWheatStalks(numberOfWheatStalks)
                 .build();
+    }
+
+    @Test
+    public void testRideHorses(){
+        //Given
+        List<Horse> horses = new ArrayList<>();
+        Person froilin = new RiderDecorator(workerFroiln);
+        Person frolinda = new RiderDecorator(workerFroilinda);
+        Boolean ridden = false;
+        for(Stable s: farm.getStableList()){
+            horses.addAll(s.getStoredItems());
+        }
+
+        //When
+        for (int i = 0; i < horses.size(); i++) {
+            froilin.work();
+            horses.get(i).ride();
+
+            frolinda.work();
+            horses.get(i+1).ride();
+
+            i++;
+        }
+
+        //Then
+        for (Horse h:horses) {
+            if(!h.getHorseRidden()){
+                ridden = false;
+                break;
+            }
+            else {
+                ridden = true;
+            }
+        }
+        Assert.assertTrue(ridden);
     }
 
 

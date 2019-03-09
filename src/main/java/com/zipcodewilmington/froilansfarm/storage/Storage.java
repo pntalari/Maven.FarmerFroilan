@@ -7,10 +7,10 @@ import java.util.List;
 
 public abstract class Storage<T> {
 
-    private List<T> itemsToBeStored;
+    private List<T> itemsToBeStored = new ArrayList<T>();;
 
     public Storage() {
-        this.itemsToBeStored = new ArrayList<T>();
+
     }
 
 
@@ -34,6 +34,10 @@ public abstract class Storage<T> {
 
     public void removeFewFromStorage(Integer startRange, Integer stopRange) {
 
+    }
+
+    public List<T> getStoredItems(){
+        return itemsToBeStored;
     }
 
 }
