@@ -251,7 +251,7 @@ public class Farm {
 
     private void addFourHorsesToStable(List<Horse> horses, Stable s) {
         for (int i = 0; i < 4; i++) {
-            if(horses == null){
+            if(horses.size() == 0){
                 break;
             }
             else{
