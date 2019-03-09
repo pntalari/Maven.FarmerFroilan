@@ -26,6 +26,5 @@ public class CropDuster<T extends Edible> extends Aircraft implements FarmVehicl
 
     public void ride() {
 
-
     }
 }

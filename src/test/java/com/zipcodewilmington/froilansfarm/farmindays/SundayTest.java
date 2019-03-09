@@ -1,7 +1,6 @@
 package com.zipcodewilmington.froilansfarm.farmindays;
 
 import com.zipcodewilmington.froilansfarm.people.*;
-import com.zipcodewilmington.froilansfarm.storage.Field;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +14,7 @@ public class SundayTest {
     public void setUp() throws Exception {
         FarmWorker worker = new FarmWorker();
 
-        farmer = new FarmerDecorator(new BotanistDecorator(worker));
+        farmer = new FarmerDecorator(new BotanistDecorator(new PilotDecorator(worker)));
 
 
     }
