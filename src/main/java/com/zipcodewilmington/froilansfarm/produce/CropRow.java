@@ -3,13 +3,15 @@ package com.zipcodewilmington.froilansfarm.produce;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Producer;
 
-public class CropRow< T extends Crop> implements Producer {
-    private  T crops;
+import java.util.List;
+
+public class CropRow <T extends Crop> implements Producer {
+    private List<T> crops;
 
     public CropRow() {
     }
 
-    public CropRow(T crop) {
+    public CropRow(List<T> crop) {
         this.crops = crop;
     }
 
@@ -17,11 +19,11 @@ public class CropRow< T extends Crop> implements Producer {
         return null;
     }
 
-    public void addCrop(T crops) {
+    public void addCrop(List<T> crops) {
         this.crops = crops;
     }
 
-    public T getCrops() {
+    public List<T> getCrops() {
         return crops;
     }
 

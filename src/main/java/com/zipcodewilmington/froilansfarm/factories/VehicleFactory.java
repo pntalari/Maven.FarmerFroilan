@@ -7,9 +7,11 @@ import java.util.List;
 
 public class VehicleFactory {
     public List<Tractor> createTractor(Integer numberOfTractors) {
+
         return null;
     }
-    public List<CropDuster> createCropDuster(Integer numberOfTractors) {
+    public List<CropDuster> createCropDuster(Integer numberOfCropDuster) {
+
         return null;
     }
 }

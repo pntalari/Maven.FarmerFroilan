@@ -13,6 +13,7 @@ public class CropFactory {
         List<TomatoPlant> cropList = new ArrayList<TomatoPlant>();
         while (i < numberOfTomatoPlants) {
             cropList.add(new TomatoPlant());
+            i++;
         }
         return cropList;
     }
