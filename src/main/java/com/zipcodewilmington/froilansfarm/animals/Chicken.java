@@ -51,4 +51,9 @@ public class Chicken implements Producer, Animal {
     public Boolean getChicFed() {
         return isChicFed;
     }
+
+    @Override
+    public void work() {
+
+    }
 }

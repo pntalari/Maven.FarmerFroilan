@@ -1,13 +1,14 @@
 package com.zipcodewilmington.froilansfarm.people;
 
-import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Ridable;
 
-public class RiderDecorator extends FarmWorker {
+public class RiderDecorator extends Person {
+
+    Person p;
 
     public RiderDecorator(Person decoratedPerson) {
-        super(decoratedPerson);
+        this.p = decoratedPerson;
     }
 
     void mount(Ridable thing){
@@ -24,5 +25,15 @@ public class RiderDecorator extends FarmWorker {
 
     public String makeNoise() {
         return null;
+    }
+
+    @Override
+    public void work() {
+        p.work();
+        this.ride();
+    }
+
+    private void ride() {
+        System.out.println("Riding");
     }
 }

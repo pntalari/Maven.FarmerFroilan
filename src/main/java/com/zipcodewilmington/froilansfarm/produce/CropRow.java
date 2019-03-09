@@ -12,7 +12,7 @@ public class CropRow< T extends Crop> implements Producer {
     public CropRow(T crop) {
         this.crops = crop;
     }
-    
+
     public Edible yield() {
         return null;
     }

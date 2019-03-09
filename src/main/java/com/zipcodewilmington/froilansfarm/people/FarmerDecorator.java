@@ -4,8 +4,10 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
 public class FarmerDecorator extends Person{
 
-    public FarmerDecorator(Person decoratedPerson) {
+    Person p;
 
+    public FarmerDecorator(Person decoratedPerson) {
+        this.p = decoratedPerson;
     }
 
     public void eat(Edible food) {
@@ -14,5 +16,15 @@ public class FarmerDecorator extends Person{
 
     public String makeNoise() {
         return null;
+    }
+
+    @Override
+    public void work() {
+        p.work();
+        this.farm();
+    }
+
+    private void farm() {
+        System.out.println("Farming");
     }
 }

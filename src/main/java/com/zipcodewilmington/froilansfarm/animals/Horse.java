@@ -38,4 +38,8 @@ public class Horse implements Animal, Ridable {
         return this.isHorseFed;
     }
 
+    @Override
+    public void work() {
+
+    }
 }
