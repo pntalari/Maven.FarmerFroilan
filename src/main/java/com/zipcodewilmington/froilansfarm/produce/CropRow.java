@@ -21,11 +21,9 @@ public class CropRow< T extends Crop> implements Producer {
         this.crops = crops;
     }
 
-     public T getCrops() {
+    public T getCrops() {
         return crops;
     }
-
-
 
     public Crop harvestCrops(){
         this.crops = null;
