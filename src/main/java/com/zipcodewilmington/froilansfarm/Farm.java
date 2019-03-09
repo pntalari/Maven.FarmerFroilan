@@ -14,10 +14,7 @@ import java.util.List;
  * Created by leon on 2/26/18.
  */
 public class Farm {
-    private Person froilan;
-    private Person froilanda;
-    private FarmWorker friolindaWorker;
-    private FarmWorker froilanWorker;
+
     private Field fieldObj;
     private AnimalFactory animalFactory;
     private StorageFactory storageFactory;
@@ -29,7 +26,37 @@ public class Farm {
     private List<FarmHouse> farmHouseList;
     private List<CropRow> cropRowList;
     private List<FarmWorker> farmWorkerList;
+    private Integer numberOfChickens;
+    private Integer numberOfStables;
+    private Integer numberOfFarmHouse;
+    private Integer numberOfChickenCoops;
+    private Integer numberOfHorses;
+    private Integer numberOfCropDusters;
+    private Integer numberOfTractors;
+    private Integer numberOfCropRows;
+    private Integer numberOfCornStalks;
+    private Integer numberOfWheatStalks;
+    private Integer numberOfTomatoPlants;
+    private Integer numberOfPotatoPlants;
+    private Integer numberOfCarrotPlants;
 
+
+    public Farm(List<FarmWorker> farmWorkerList, Integer numberOfChickens, Integer numberOfStables, Integer numberOfFarmHouse, Integer numberOfChickenCoops, Integer numberOfHorses, Integer numberOfCropDusters, Integer numberOfTractors, Integer numberOfCropRows, Integer numberOfCornStalks, Integer numberOfWheatStalks, Integer numberOfTomatoPlants, Integer numberOfPotatoPlants, Integer numberOfCarrotPlants) {
+        this.farmWorkerList = farmWorkerList;
+        this.numberOfChickens = numberOfChickens;
+        this.numberOfStables = numberOfStables;
+        this.numberOfFarmHouse = numberOfFarmHouse;
+        this.numberOfChickenCoops = numberOfChickenCoops;
+        this.numberOfHorses = numberOfHorses;
+        this.numberOfCropDusters = numberOfCropDusters;
+        this.numberOfTractors = numberOfTractors;
+        this.numberOfCropRows = numberOfCropRows;
+        this.numberOfCornStalks = numberOfCornStalks;
+        this.numberOfWheatStalks = numberOfWheatStalks;
+        this.numberOfTomatoPlants = numberOfTomatoPlants;
+        this.numberOfPotatoPlants = numberOfPotatoPlants;
+        this.numberOfCarrotPlants = numberOfCarrotPlants;
+    }
 
     public Farm() {
         fieldObj = Field.getInstance();
@@ -41,8 +68,8 @@ public class Farm {
         cropFactory = new CropFactory();
         cropRowFactory = new CropRowFactory();
 
-        froilanda = new FarmerDecorator(new RiderDecorator(new PilotDecorator(friolindaWorker)));
-        froilan = new FarmerDecorator(new BotanistDecorator(new RiderDecorator(froilanWorker)));
+//        froilanda = new FarmerDecorator(new RiderDecorator(new PilotDecorator(friolindaWorker)));
+//        froilan = new FarmerDecorator(new BotanistDecorator(new RiderDecorator(froilanWorker)));
 
         cropRowList = cropRowFactory.createCropRows(5);
 
@@ -69,8 +96,10 @@ public class Farm {
 
 
 
-        farmHouseList.get(0).addToStorage(froilan);
-        farmHouseList.get(0).addToStorage(froilanda);
+//        farmHouseList.get(0).addToStorage(froilan);
+//        farmHouseList.get(0).addToStorage(froilanda);
+//
+
 
 
 

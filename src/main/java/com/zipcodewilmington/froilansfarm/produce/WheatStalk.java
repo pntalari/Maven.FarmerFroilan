@@ -9,10 +9,10 @@ public class WheatStalk extends Crop<Wheat> implements Producer {
 
     private List<Wheat> wheatList = new ArrayList<>();
 
-    public int yield() {
+    public Wheat yield() {
         if(hasBeenHarvested){
             wheatList.add(new Wheat());
         }
-        return wheatList.size();
+        return null;
     }
 }
