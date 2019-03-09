@@ -28,6 +28,7 @@ public class Farm {
     private List<Stable> stableList;
     private List<FarmHouse> farmHouseList;
     private List<CropRow> cropRowList;
+    private List<FarmWorker> farmWorkerList;
 
 
     public Farm() {
