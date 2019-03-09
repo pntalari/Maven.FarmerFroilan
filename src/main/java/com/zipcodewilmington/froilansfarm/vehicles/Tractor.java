@@ -1,9 +1,11 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
+import com.zipcodewilmington.froilansfarm.produce.Crop;
 
 public class Tractor implements FarmVehicle {
-    public void harvest() {
+    public void harvest(Crop crop) {
+        crop.harvest();
     }
 
     public void operate() {
@@ -11,7 +13,7 @@ public class Tractor implements FarmVehicle {
     }
 
     public String makeNoise() {
-        return null;
+        return "Vroom!";
     }
 
     public void ride() {

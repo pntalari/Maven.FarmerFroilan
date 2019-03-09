@@ -15,6 +15,9 @@ public class CropDusterTest {
 
     @Test
     public void fertilizeTest() {
+        //get field croprows
+        //get field crops
+        //fertilize the crops
     }
 
     @Test
