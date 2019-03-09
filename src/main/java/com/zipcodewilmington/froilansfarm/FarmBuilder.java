@@ -1,24 +1,11 @@
 package com.zipcodewilmington.froilansfarm;
 
-import com.zipcodewilmington.froilansfarm.factories.*;
-import com.zipcodewilmington.froilansfarm.people.FarmWorker;
 import com.zipcodewilmington.froilansfarm.people.Person;
-import com.zipcodewilmington.froilansfarm.produce.CropRow;
-import com.zipcodewilmington.froilansfarm.storage.ChickenCoop;
-import com.zipcodewilmington.froilansfarm.storage.FarmHouse;
-import com.zipcodewilmington.froilansfarm.storage.Field;
-import com.zipcodewilmington.froilansfarm.storage.Stable;
 
 import java.util.List;
 
 public class FarmBuilder {
-
-
-    private List<ChickenCoop> chickenCoopList;
-    private List<Stable> stableList;
-    private List<FarmHouse> farmHouseList;
-    private List<CropRow> cropRowList;
-    private List<FarmWorker> farmWorkerList;
+    private List<Person> farmWorkerList;
     private Integer numberOfChickens;
     private Integer numberOfStables;
     private Integer numberOfFarmHouse;
@@ -33,27 +20,7 @@ public class FarmBuilder {
     private Integer numberOfPotatoPlants;
     private Integer numberOfCarrotPlants;
 
-    public FarmBuilder setChickenCoopList(List<ChickenCoop> chickenCoopList) {
-        this.chickenCoopList = chickenCoopList;
-        return this;
-    }
-
-    public FarmBuilder setStableList(List<Stable> stableList) {
-        this.stableList = stableList;
-        return this;
-    }
-
-    public FarmBuilder setFarmHouseList(List<FarmHouse> farmHouseList) {
-        this.farmHouseList = farmHouseList;
-        return this;
-    }
-
-    public FarmBuilder setCropRowList(List<CropRow> cropRowList) {
-        this.cropRowList = cropRowList;
-        return this;
-    }
-
-    public FarmBuilder setFarmWorkerList(List<FarmWorker> farmWorkerList) {
+    public FarmBuilder setFarmWorkerList(List<Person> farmWorkerList) {
         this.farmWorkerList = farmWorkerList;
         return this;
     }

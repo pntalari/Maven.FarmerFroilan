@@ -6,7 +6,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 public class FarmWorker implements Animal {
     @Override
     public void work() {
-        System.out.println("Ready to work");
+
     }
 
     @Override
