@@ -1,58 +1,77 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.factories.AnimalFactory;
 import com.zipcodewilmington.froilansfarm.factories.CropFactory;
+import com.zipcodewilmington.froilansfarm.factories.StorageFactory;
+import com.zipcodewilmington.froilansfarm.factories.VehicleFactory;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-import com.zipcodewilmington.froilansfarm.people.Person;
+import com.zipcodewilmington.froilansfarm.people.*;
 import com.zipcodewilmington.froilansfarm.produce.*;
-import com.zipcodewilmington.froilansfarm.storage.ChickenCoop;
-import com.zipcodewilmington.froilansfarm.storage.FarmHouse;
-import com.zipcodewilmington.froilansfarm.storage.Field;
-import com.zipcodewilmington.froilansfarm.storage.Storage;
+import com.zipcodewilmington.froilansfarm.storage.*;
 import com.zipcodewilmington.froilansfarm.vehicles.CropDuster;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by leon on 2/26/18.
  */
 public class Farm {
-    private java.util.List<com.zipcodewilmington.froilansfarm.storage.Stable> stables;
-    private java.util.List<ChickenCoop> chickenCoops;
-    private FarmHouse farmHouse;
-    private Field field = Field.getInstance();
-
-    private CornStalk cornStalk;
-    private WheatStalk wheatStalk;
-    private TomatoPlant tomatoPlant;
-    private CropRow cropRowObj = new CropRow();
-    private CropFactory cropFactory = new CropFactory();
-    private CropDuster cropDuster = new CropDuster();
-
+    private Person froilan;
+    private Person froilanda;
 
     public  Farm(){
+        Field fieldObj = Field.getInstance();
+        CropRow cropRowobj1 = new CropRow();
+        CropRow cropRowobj2 = new CropRow();
+        CropRow cropRowobj3 = new CropRow();
 
-      //  storage.add(field1);
+        fieldObj.addToStorage(cropRowobj1);
+        fieldObj.addToStorage(cropRowobj2);
+        fieldObj.addToStorage(cropRowobj3);
 
-        field.add(cropRowObj);
-
+        //create Crop factory
+        CropFactory cropFactory = new CropFactory();
         cropFactory.createCornStalk(50);
-        cropFactory.createTomatoPlant(50);
         cropFactory.createWheatStalk(50);
 
-       // cropRowObj.addCrop();// listofCornstalk from factory;
-        cropRowObj.addCrop(wheatStalk);
-        cropRowObj.addCrop(tomatoPlant);
+        cropRowobj1.addCrop(cropFactory.createTomatoPlant(50));
+        cropRowobj2.addCrop(cropFactory.createCornStalk(50));
+        cropRowobj3.addCrop(cropFactory.createWheatStalk(50));
 
-        tomatoPlant.fertilize();
-       // cropDuster.fertilize(1,cornStalk);
+        AnimalFactory animalFactory = new AnimalFactory();
 
-        cornStalk = new CornStalk();
-        cornStalk.yield();
-        wheatStalk = new WheatStalk();
-        wheatStalk.fertilize();
-        tomatoPlant = new TomatoPlant();
-        tomatoPlant.fertilize();
+        StorageFactory storageFactory = new StorageFactory();
 
+        List<ChickenCoop> chickenCoopList = storageFactory.createChickenCoops(4);
+        List<Stable> stableList = storageFactory.createStables(3);
+        List<FarmHouse> farmHouse = storageFactory.createFarmHouses(1);
 
+        animalFactory.createHorse(10);
+
+        chickenCoopList.get(0).addToStorage(animalFactory.createChicken(4));
+        chickenCoopList.get(1).addToStorage(animalFactory.createChicken(4));
+        chickenCoopList.get(2).addToStorage(animalFactory.createChicken(4));
+        chickenCoopList.get(3).addToStorage(animalFactory.createChicken(3));
+
+        stableList.get(0).addToStorage(animalFactory.createHorse(4));
+        stableList.get(1).addToStorage(animalFactory.createHorse(3));
+        stableList.get(2).addToStorage(animalFactory.createHorse(3));
+
+        VehicleFactory vehicleFactory = new VehicleFactory();
+
+        vehicleFactory.createCropDuster(1);
+        vehicleFactory.createTractor(1);
+
+        FarmWorker friolindaWorker = new FarmWorker();
+        FarmWorker froilanWorker = new FarmWorker();
+
+        froilanda = new FarmerDecorator(new RiderDecorator(new PilotDecorator(friolindaWorker)));
+        froilan = new FarmerDecorator(new BotanistDecorator(new RiderDecorator(froilanWorker)));
+
+        farmHouse.get(0).addToStorage(froilan);
+        farmHouse.get(0).addToStorage(froilanda);
     }
+
+
 }
