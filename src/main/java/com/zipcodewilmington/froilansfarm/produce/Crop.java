@@ -12,7 +12,7 @@ public abstract class Crop<T extends Edible> implements Producer {
         this.hasBeenHarvested = false;
     }
 
-    public abstract int yield();
+    public abstract T yield();
 
     public boolean fertilize(){
         hasBeenFertilized = true;

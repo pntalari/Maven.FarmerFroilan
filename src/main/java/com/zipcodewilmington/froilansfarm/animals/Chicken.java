@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.animals;
 
+import com.sun.scenario.effect.Crop;
 import com.zipcodewilmington.froilansfarm.interfaces.Animal;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Producer;
@@ -23,7 +24,7 @@ public class Chicken implements Producer, Animal {
         return "Cock-a-doodle-do!!";
     }
 
-    public int yield() {
+    public EdibleEgg yield() {
         if(this.hasBeenFertilized){
             EdibleEgg egg = new EdibleEgg();
             return egg;
