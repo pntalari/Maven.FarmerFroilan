@@ -18,7 +18,8 @@ public class ChickenTest {
     @Test
     public void fertilizeTest() {
         Boolean expectedBool = true;
-        Boolean actualBool = chickObj.fertilize();
+        chickObj.fertilize();
+        Boolean actualBool = chickObj.getHasBeenFertilized();
         Assert.assertEquals(expectedBool, actualBool);
     }
 

@@ -1,21 +1,34 @@
 package com.zipcodewilmington.froilansfarm.produce;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.interfaces.Producer;
 
-public class CropRow {
-    private List<Crop> crops;
+public class CropRow< T extends Crop> implements Producer {
+    private  T crops;
 
     public CropRow() {
-        crops = new ArrayList<Crop>();
-
     }
 
-    public void addCrop(Integer row, Crop crop) {
+    public CropRow(T crop) {
+        this.crops = crop;
     }
-
-    public Crop harvestCropByRow(Integer row) {
+    
+    public Edible yield() {
         return null;
     }
 
+    public void addCrop(T crops) {
+        this.crops = crops;
+    }
+
+     public T getCrops() {
+        return crops;
+    }
+
+
+
+    public Crop harvestCrops(){
+        this.crops = null;
+        return null;
+    }
 }
