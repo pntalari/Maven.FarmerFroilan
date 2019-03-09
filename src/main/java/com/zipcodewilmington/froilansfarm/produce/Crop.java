@@ -14,11 +14,13 @@ public abstract class Crop<T extends Edible> implements Producer {
 
     public abstract T yield();
 
-    public void fertilize(){
+    public boolean fertilize(){
         hasBeenFertilized = true;
+        return false;
     }
 
-    public void harvest(){
+    public boolean harvest(){
         hasBeenHarvested = true;
+        return false;
     }
 }
