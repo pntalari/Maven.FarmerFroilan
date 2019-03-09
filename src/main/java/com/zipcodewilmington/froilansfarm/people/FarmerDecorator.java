@@ -1,12 +1,13 @@
 package com.zipcodewilmington.froilansfarm.people;
 
+import com.zipcodewilmington.froilansfarm.interfaces.Animal;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
 public class FarmerDecorator extends Person{
 
-    Person p;
+    Animal p;
 
-    public FarmerDecorator(Person decoratedPerson) {
+    public FarmerDecorator(Animal decoratedPerson) {
         this.p = decoratedPerson;
     }
 
