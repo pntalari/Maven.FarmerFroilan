@@ -4,12 +4,10 @@ import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.FarmBuilder;
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.people.*;
 import com.zipcodewilmington.froilansfarm.produce.*;
 import com.zipcodewilmington.froilansfarm.storage.ChickenCoop;
 import com.zipcodewilmington.froilansfarm.storage.Stable;
-import jdk.nashorn.internal.ir.WhileNode;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +21,7 @@ public class MondayTest {
     private Farm farm;
     private FarmWorker workerFroiln;
     private FarmWorker workerFroilinda;
+    private Monday monday = new Monday();
 
     @Before
     public void setUp() throws Exception {
@@ -64,34 +63,18 @@ public class MondayTest {
     @Test
     public void testRideHorses() {
         //Given
-        List<Horse> horses = new ArrayList<>();
         Person froilin = new RiderDecorator(workerFroiln);
         Person frolinda = new RiderDecorator(workerFroilinda);
-        Boolean ridden = false;
-        for (Stable s : farm.getStableList()) {
-            horses.addAll(s.getStoredItems());
-        }
+        Boolean ridden;
+
+        List<Horse> horses = monday.getStableHorses(farm);
 
         //When
-        for (int i = 0; i < horses.size(); i++) {
-            froilin.work();
-            horses.get(i).ride();
-
-            frolinda.work();
-            horses.get(i + 1).ride();
-
-            i++;
-        }
+        monday.rideEachHorse(horses,froilin,frolinda);
 
         //Then
-        for (Horse h : horses) {
-            if (!h.getHorseRidden()) {
-                ridden = false;
-                break;
-            } else {
-                ridden = true;
-            }
-        }
+        ridden = monday.checkEachHorseRidden(horses);
+
         Assert.assertTrue(ridden);
     }
 
@@ -203,12 +186,12 @@ public class MondayTest {
         }
 
         //Then
-        Assert.assertEquals(1,froilanAteCornCount);
-        Assert.assertEquals(2,froilanAteTomatoesCount);
-        Assert.assertEquals(5,froilanAteEggsCount);
+        Assert.assertEquals(1, froilanAteCornCount);
+        Assert.assertEquals(2, froilanAteTomatoesCount);
+        Assert.assertEquals(5, froilanAteEggsCount);
 
-        Assert.assertEquals(2,froilindaAteCornCount);
-        Assert.assertEquals(1,froilindaAteTomatoesCount);
-        Assert.assertEquals(2,froilindaAteEggsCount);
+        Assert.assertEquals(2, froilindaAteCornCount);
+        Assert.assertEquals(1, froilindaAteTomatoesCount);
+        Assert.assertEquals(2, froilindaAteEggsCount);
     }
 }
