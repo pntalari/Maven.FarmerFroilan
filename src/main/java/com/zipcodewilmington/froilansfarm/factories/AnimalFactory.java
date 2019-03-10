@@ -8,8 +8,14 @@ import java.util.List;
 
 public class AnimalFactory {
     public List<Chicken> createChicken(Integer numberOfChicken){
-        return null;
+        List<Chicken> chickens = new ArrayList<>();
+
+        for (int i = 0; i < numberOfChicken; i++) {
+            chickens.add(new Chicken());
+        }
+        return chickens;
     }
+
     public List<Horse> createHorse(Integer numberOfHorse){
         List<Horse> horses = new ArrayList<>();
 
