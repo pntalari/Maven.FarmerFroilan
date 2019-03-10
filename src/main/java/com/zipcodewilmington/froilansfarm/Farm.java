@@ -82,9 +82,9 @@ public class Farm {
         this.createCarrotPlant();
 
         this.addChickensToCoop();
-        this.addCropRowsToField();
         this.addHorsesToStable();
         this.addCropsToCropRow();
+        this.addCropRowsToField();
         this.addWorkersToFarmHouse();
     }
 

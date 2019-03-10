@@ -13,7 +13,7 @@ public class CropDuster<T extends Edible> extends Aircraft implements FarmVehicl
 
     public void fertilize(CropRow row) {
         row.getCrops();
-       this.crop.fertilize();
+        this.crop.fertilize();
     }
 
     public void operate() {
