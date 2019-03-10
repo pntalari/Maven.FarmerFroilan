@@ -9,10 +9,11 @@ public class CornStalk extends Crop<EarCorn>{
 
     private List<EarCorn> corn = new ArrayList<>();
 
-    public EarCorn yield() {
+    public  EarCorn yield() {
         if(hasBeenHarvested){
-            corn.add(new EarCorn());
+            return new EarCorn();
         }
-        return null;
+        else
+            return null;
     }
 }
