@@ -10,6 +10,7 @@ public class TomatoPlant extends Crop<Tomato>{
     public Tomato yield() {
         if (hasBeenHarvested) {
             tomatoes.add(new Tomato());
+            return new Tomato();
         }
         return null;
     }

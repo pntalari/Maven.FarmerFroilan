@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm;
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
 import com.zipcodewilmington.froilansfarm.factories.*;
+import com.zipcodewilmington.froilansfarm.interfaces.Animal;
 import com.zipcodewilmington.froilansfarm.people.Person;
 import com.zipcodewilmington.froilansfarm.produce.*;
 import com.zipcodewilmington.froilansfarm.storage.*;
@@ -238,7 +239,24 @@ public class Farm {
     }
 
     public void addChickensToCoop() {
+        List<Chicken> chickens = this.createChicken();
+        this.chickenCoopList = this.createChickenCoop();
 
+        for(ChickenCoop c: chickenCoopList){
+            addFourChickensToCoop(chickens, c);
+        }
+
+    }
+
+    private void addFourChickensToCoop(List<Chicken> chickens, ChickenCoop c) {
+        for (int i = 0; i < 4; i++) {
+            if (chickens.size() == 0) {
+                break;
+            } else {
+                c.addToStorage(chickens.get(0));
+                chickens.remove(0);
+            }
+        }
     }
 
     public void addHorsesToStable() {
@@ -279,6 +297,5 @@ public class Farm {
     public void addCropRowsToField() {
         fieldObj.addToStorage(this.cropRowList);
     }
-
 
 }
