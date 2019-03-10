@@ -11,10 +11,18 @@ import java.util.List;
 public class StorageFactory <T extends Storage> {
 
     public List<ChickenCoop> createChickenCoops(Integer numberOfCoops){
-        return null;
+        List<ChickenCoop> result = new ArrayList<>();
+        for (int i = 0; i < numberOfCoops ; i++) {
+            result.add(new ChickenCoop());
+        }
+        return result;
     }
     public List<FarmHouse> createFarmHouses(Integer numberOfFarmHouses){
-        return null;
+        List<FarmHouse> result = new ArrayList<>();
+        for (int i = 0; i < numberOfFarmHouses; i++) {
+            result.add(new FarmHouse());
+        }
+        return result;
     }
 
     public List<Stable> createStables(Integer numberOfStables){

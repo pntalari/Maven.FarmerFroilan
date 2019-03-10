@@ -8,7 +8,7 @@ public class CropDusterTest {
 
     @Test
     public void makeNoiseTest() {
-        String expectedNoise = "Sawing!!!";
+        String expectedNoise = "Zoom!";
         String actualNoise = cropDusterObj.makeNoise();
         Assert.assertEquals(expectedNoise, actualNoise);
     }
