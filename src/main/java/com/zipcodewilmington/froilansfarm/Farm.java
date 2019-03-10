@@ -90,7 +90,48 @@ public class Farm {
     }
 
     public Farm() {
+        fieldObj = Field.getInstance();
 
+        animalFactory = new AnimalFactory();
+        storageFactory = new StorageFactory();
+        vehicleFactory = new VehicleFactory();
+        cropFactory = new CropFactory();
+        cropRowFactory = new CropRowFactory();
+
+        this.numberOfChickens = 1;
+        this.numberOfStables = 1;
+        this.numberOfFarmHouse = 1;
+        this.numberOfChickenCoops = 1;
+        this.numberOfHorses = 1;
+        this.numberOfCropDusters = 1;
+        this.numberOfTractors = 1;
+        this.numberOfCropRows = 1;
+        this.numberOfCornStalks = 1;
+        this.numberOfWheatStalks = 1;
+        this.numberOfTomatoPlants = 1;
+        this.numberOfPotatoPlants = 1;
+        this.numberOfCarrotPlants = 1;
+
+        this.createFarmHouse();
+        this.createStable();
+        this.createChickenCoop();
+
+        this.createTractors();
+        this.createCropDuster();
+
+        this.createCropRows();
+
+        this.createTomatoPlant();
+        this.createWheatStalk();
+        this.createCornStalk();
+        this.createPotatoPlant();
+        this.createCarrotPlant();
+
+        this.addChickensToCoop();
+        this.addHorsesToStable();
+        this.addCropsToCropRow();
+        this.addCropRowsToField();
+        this.addWorkersToFarmHouse();
 
     }
 
@@ -286,11 +327,11 @@ public class Farm {
     public void addCropsToCropRow() {
         this.cropRowList = this.createCropRows();
 
-        cropRowList.get(0).addCrop(createCornStalk());
-        cropRowList.get(1).addCrop(createTomatoPlant());
-        cropRowList.get(2).addCrop(createWheatStalk());
-        cropRowList.get(3).addCrop(createPotatoPlant());
-        cropRowList.get(4).addCrop(createCarrotPlant());
+//        cropRowList.get(0).addCrop(createCornStalk());
+//        cropRowList.get(1).addCrop(createTomatoPlant());
+//        cropRowList.get(2).addCrop(createWheatStalk());
+//        cropRowList.get(3).addCrop(createPotatoPlant());
+//        cropRowList.get(4).addCrop(createCarrotPlant());
 
     }
 
