@@ -7,28 +7,44 @@ import java.util.List;
 
 public class CropFactory {
 
-
-    public List<CarrotPlant> createCarrotPlant(Integer numberOfCarrotPlants){return null;}
-    public List<PotatoPlant> createPotatoPlant(Integer numberOfPotatoPlants){return null;}
-
-    Integer i = 0;
-
-
     public List<TomatoPlant> createTomatoPlant(Integer numberOfTomatoPlants) {
-        List<TomatoPlant> cropList = new ArrayList<TomatoPlant>();
-        while (i < numberOfTomatoPlants) {
-            cropList.add(new TomatoPlant());
-            i++;
+        List<TomatoPlant> tomatoPlants = new ArrayList<TomatoPlant>();
+        for (int i = 0; i < numberOfTomatoPlants; i++) {
+            tomatoPlants.add(new TomatoPlant());
         }
-        return cropList;
+        return tomatoPlants;
     }
 
     public List<CornStalk> createCornStalk(Integer numberOfCornStalks) {
-        return null;
+        List<CornStalk> cornStalks = new ArrayList<>();
+        for (int i = 0; i <numberOfCornStalks ; i++) {
+            cornStalks.add(new CornStalk());
+        }
+        return cornStalks;
     }
 
     public List<WheatStalk> createWheatStalk(Integer numberOfWheatStalks) {
-        return null;
+        List<WheatStalk> wheatStalks = new ArrayList<>();
+        for (int i = 0; i <numberOfWheatStalks ; i++) {
+            wheatStalks.add(new WheatStalk());
+        }
+        return wheatStalks;
+    }
+
+    public List<CarrotPlant> createCarrotPlant(Integer numberOfCarrotPlants) {
+        List<CarrotPlant> carrotPlants = new ArrayList<>();
+        for (int i = 0; i <numberOfCarrotPlants ; i++) {
+            carrotPlants.add(new CarrotPlant());
+        }
+        return carrotPlants;
+    }
+
+    public List<PotatoPlant> createPotatoPlant(Integer numberOfPotatoPlants) {
+        List<PotatoPlant> potatoPlants = new ArrayList<>();
+        for (int i = 0; i <numberOfPotatoPlants ; i++) {
+            potatoPlants.add(new PotatoPlant());
+        }
+        return potatoPlants;
     }
 
 }

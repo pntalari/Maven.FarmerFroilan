@@ -7,11 +7,12 @@ import java.util.List;
 
 public class CropRowFactory {
 
-    private List<CropRow> cropRowList = new ArrayList<>();
-
-
      public List<CropRow> createCropRows(Integer numberOfCropRows){
-         return null;
+         List<CropRow> cropRowList = new ArrayList<>();
+         for (int i = 0; i <numberOfCropRows ; i++) {
+             cropRowList.add(new CropRow());
+         }
+         return cropRowList;
 
      }
 

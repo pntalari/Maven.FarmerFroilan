@@ -9,6 +9,7 @@ import com.zipcodewilmington.froilansfarm.storage.*;
 import com.zipcodewilmington.froilansfarm.vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -92,15 +93,15 @@ public class Farm {
 
     }
 
-    public List<FarmHouse> createFarmHouse(){
+    public List<FarmHouse> createFarmHouse() {
         return storageFactory.createFarmHouses(numberOfFarmHouse);
     }
 
-    public List<Stable> createStable(){
+    public List<Stable> createStable() {
         return storageFactory.createStables(numberOfStables);
     }
 
-    public List<ChickenCoop> createChickenCoop(){
+    public List<ChickenCoop> createChickenCoop() {
         return storageFactory.createChickenCoops(numberOfChickenCoops);
     }
 
@@ -136,11 +137,11 @@ public class Farm {
         return cropFactory.createCarrotPlant(numberOfCarrotPlants);
     }
 
-    public List<Tractor> createTractors(){
+    public List<Tractor> createTractors() {
         return vehicleFactory.createTractor(numberOfTractors);
     }
 
-    public List<CropDuster> createCropDuster(){
+    public List<CropDuster> createCropDuster() {
         return vehicleFactory.createCropDuster(numberOfCropDusters);
     }
 
@@ -183,6 +184,7 @@ public class Farm {
     public List<Person> getFarmWorkerList() {
         return farmWorkerList;
     }
+
     public Integer getNumberOfChickens() {
         return numberOfChickens;
     }
@@ -235,8 +237,7 @@ public class Farm {
         return numberOfCarrotPlants;
     }
 
-    public void addChickensToCoop()
-    {
+    public void addChickensToCoop() {
 
     }
 
@@ -244,33 +245,39 @@ public class Farm {
         List<Horse> horses = this.createHorse();
         this.stableList = this.createStable();
 
-        for (Stable s: stableList) {
+        for (Stable s : stableList) {
             addFourHorsesToStable(horses, s);
         }
     }
 
     private void addFourHorsesToStable(List<Horse> horses, Stable s) {
         for (int i = 0; i < 4; i++) {
-            if(horses.size() == 0){
+            if (horses.size() == 0) {
                 break;
-            }
-            else{
+            } else {
                 s.addToStorage(horses.get(0));
                 horses.remove(0);
             }
         }
     }
 
-    public void addWorkersToFarmHouse(){
+    public void addWorkersToFarmHouse() {
 
     }
 
-    public void addCropsToCropRow(){
+    public void addCropsToCropRow() {
+        this.cropRowList = this.createCropRows();
+
+        cropRowList.get(0).addCrop(createCornStalk());
+        cropRowList.get(1).addCrop(createTomatoPlant());
+        cropRowList.get(2).addCrop(createWheatStalk());
+        cropRowList.get(3).addCrop(createPotatoPlant());
+        cropRowList.get(4).addCrop(createCarrotPlant());
 
     }
 
-    public void addCropRowsToField(){
-
+    public void addCropRowsToField() {
+        fieldObj.addToStorage(this.cropRowList);
     }
 
 
