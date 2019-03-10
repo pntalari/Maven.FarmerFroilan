@@ -12,7 +12,7 @@ public class Monday {
 
 
 
-    public void feedEachHorse(List<Horse> horses, Person froilan, Person froilinda) {
+    public void rideEachHorse(List<Horse> horses, Person froilan, Person froilinda) {
         for (int i = 0; i < horses.size(); i++) {
             froilan.work();
             horses.get(i).ride();

@@ -70,7 +70,7 @@ public class MondayTest {
         List<Horse> horses = monday.getStableHorses(farm);
 
         //When
-        monday.feedEachHorse(horses,froilin,frolinda);
+        monday.rideEachHorse(horses,froilin,frolinda);
 
         //Then
         ridden = monday.checkEachHorseRidden(horses);
