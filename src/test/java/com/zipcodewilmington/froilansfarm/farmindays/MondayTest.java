@@ -6,8 +6,6 @@ import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
 import com.zipcodewilmington.froilansfarm.people.*;
 import com.zipcodewilmington.froilansfarm.produce.*;
-import com.zipcodewilmington.froilansfarm.storage.ChickenCoop;
-import com.zipcodewilmington.froilansfarm.storage.Stable;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -114,54 +112,17 @@ public class MondayTest {
         chickens = monday.getCoopChickens(farm);
 
         edibleEggs = monday.getSevenEggs(chickens);
-
-        for (int i = 0; i < 3; i++) {
-            cornStalks.get(i).fertilize();
-            cornStalks.get(i).harvest();
-
-            tomatoPlants.get(i).fertilize();
-            tomatoPlants.get(i).harvest();
-
-            earCorns.add(cornStalks.get(i).yield());
-            tomatoes.add(tomatoPlants.get(i).yield());
-        }
+        earCorns = monday.getThreeCorns(cornStalks);
+        tomatoes = monday.getThreeTomatoes(tomatoPlants);
 
         //When
-//        monday.froilanAteCorn(workerFroiln,earCorns);
-//        monday.froilanAteTomatoes(workerFroiln,tomatoes);
-//        monday.froilanAteEggs(workerFroiln,edibleEggs);
-//
-//        monday.froilindaAteCorn(workerFroiln,earCorns);
-//        monday.froilindaAteTomatoes(workerFroiln,tomatoes);
-//        monday.froilindaAteEggs(workerFroiln,edibleEggs);
+        froilanAteCornCount = monday.workerAteBF(workerFroiln, earCorns, 1);
+        froilanAteTomatoesCount = monday.workerAteBF(workerFroiln, tomatoes, 2);
+        froilanAteEggsCount = monday.workerAteBF(workerFroiln, edibleEggs, 5);
 
-        int count = 0;
-        for (int i = 0; i < earCorns.size(); i++) {
-            if (count == 0) {
-                workerFroiln.eat(earCorns.get(i));
-                froilanAteCornCount++;
-                workerFroilinda.eat(tomatoes.get(i));
-                froilindaAteTomatoesCount++;
-                count++;
-            } else {
-                workerFroilinda.eat(earCorns.get(i));
-                froilindaAteCornCount++;
-                workerFroiln.eat(tomatoes.get(i));
-                froilanAteTomatoesCount++;
-            }
-        }
-
-        count = 0;
-        for (int i = 0; i < edibleEggs.size(); i++) {
-            if (count < 2) {
-                workerFroilinda.eat(edibleEggs.get(i));
-                froilindaAteEggsCount++;
-                count++;
-            } else {
-                workerFroiln.eat(edibleEggs.get(i));
-                froilanAteEggsCount++;
-            }
-        }
+        froilindaAteCornCount =  monday.workerAteBF(workerFroiln,earCorns,2);
+        froilindaAteTomatoesCount = monday.workerAteBF(workerFroiln,tomatoes,1);
+        froilindaAteEggsCount =  monday.workerAteBF(workerFroiln,edibleEggs,2);
 
         //Then
         Assert.assertEquals(1, froilanAteCornCount);

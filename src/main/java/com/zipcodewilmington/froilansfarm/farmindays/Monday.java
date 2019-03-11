@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm.farmindays;
 import com.zipcodewilmington.froilansfarm.Farm;
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.people.FarmWorker;
 import com.zipcodewilmington.froilansfarm.people.Person;
 import com.zipcodewilmington.froilansfarm.produce.*;
@@ -12,7 +13,7 @@ import com.zipcodewilmington.froilansfarm.storage.Stable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Monday {
+public class Monday<T extends Edible> {
 
     public void rideEachHorse(List<Horse> horses, Person froilan, Person froilinda) {
         for (int i = 0; i < horses.size(); i++) {
@@ -102,15 +103,37 @@ public class Monday {
     }
 
 
-    public int froilanAteCorn(FarmWorker workerFroiln, List<EarCorn> earCorns) {
-        int count = 0, froilanAteCornCount = 0;
-        for (int i = 0; i < earCorns.size(); i++) {
-            if (count == 0) {
-                workerFroiln.eat(earCorns.get(i));
-                froilanAteCornCount++;
-                break;
-            }
+    public int workerAteBF(FarmWorker workerFroiln, List<T> crop, Integer numberOfCorn) {
+        int eatenCount = 0;
+        for (int i = 0; i < numberOfCorn; i++) {
+            workerFroiln.eat(crop.get(i));
+            eatenCount++;
         }
-        return froilanAteCornCount;
+        return eatenCount;
     }
+
+
+    public List<EarCorn> getThreeCorns(List<CornStalk> cornPlants) {
+        List<EarCorn> earCorns = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            cornPlants.get(i).fertilize();
+            cornPlants.get(i).harvest();
+
+            earCorns.add(cornPlants.get(i).yield());
+        }
+        return earCorns;
+    }
+
+    public List<Tomato> getThreeTomatoes(List<TomatoPlant> tomatoPlants) {
+        List<Tomato> tomatoes = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            tomatoPlants.get(i).fertilize();
+            tomatoPlants.get(i).harvest();
+
+            tomatoes.add(tomatoPlants.get(i).yield());
+        }
+        return tomatoes;
+    }
+
 }
+
