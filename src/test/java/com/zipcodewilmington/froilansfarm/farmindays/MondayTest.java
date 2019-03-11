@@ -65,62 +65,37 @@ public class MondayTest {
         //Given
         Person froilin = new RiderDecorator(workerFroiln);
         Person frolinda = new RiderDecorator(workerFroilinda);
-        Boolean ridden;
+        Boolean isRidden;
 
         List<Horse> horses = monday.getStableHorses(farm);
 
         //When
-        monday.rideEachHorse(horses,froilin,frolinda);
+        monday.rideEachHorse(horses, froilin, frolinda);
 
         //Then
-        ridden = monday.checkEachHorseRidden(horses);
+        isRidden = monday.checkEachHorseRidden(horses);
 
-        Assert.assertTrue(ridden);
+        Assert.assertTrue(isRidden);
     }
 
     @Test
     public void testFeedHorse() {
         //Given
-        ArrayList<Horse> horses = new ArrayList<>();
         Person froilan = new FarmerDecorator(workerFroiln);
         Person froilinda = new FarmerDecorator(workerFroilinda);
-        Boolean horseFed = false;
+        Boolean isHorseFed = false;
 
         List<CornStalk> cornStalks = farm.getCropRowList().get(0).getCrops();
-        List<EarCorn> earCorns = new ArrayList<>();
-
-        for (int i = 0; i < farm.getCropRowList().get(0).getCrops().size(); i++) {
-            cornStalks.get(i).fertilize();
-            cornStalks.get(i).harvest();
-            earCorns.add(cornStalks.get(i).yield());
-        }
-
-        for (Stable s : farm.getStableList()) {
-            horses.addAll(s.getStoredItems());
-        }
+        List<EarCorn> earCorns = monday.getEdibleCornStalks(farm, cornStalks);
+        List<Horse> horses = monday.getStableHorses(farm);
 
         //When
-        int j = 0;
-        while (j < horses.size()) {
-            for (int i = 0; i < 3; i++) {
-                froilan.work();
-                horses.get(j).eat(earCorns.get(i));
-
-                froilinda.work();
-                horses.get(j + 1).eat(earCorns.get(i + 1));
-            }
-            j += 2;
-        }
+        monday.feedEachHorse(horses, froilan, froilinda, earCorns);
 
         //Then
-        for (Horse h : horses) {
-            if (!h.getHorseFed()) {
-                horseFed = false;
-                break;
-            } else
-                horseFed = true;
-        }
-        Assert.assertTrue(horseFed);
+        isHorseFed = monday.checkEachHorseAte(horses);
+
+        Assert.assertTrue(isHorseFed);
 
     }
 
@@ -136,14 +111,9 @@ public class MondayTest {
         int froilanAteEggsCount = 0, froilanAteCornCount = 0, froilanAteTomatoesCount = 0,
                 froilindaAteEggsCount = 0, froilindaAteCornCount = 0, froilindaAteTomatoesCount = 0;
 
-        for (ChickenCoop c : farm.getChickenCoopList()) {
-            chickens.addAll(c.getStoredItems());
-        }
+        chickens = monday.getCoopChickens(farm);
 
-        for (int i = 0; i < 7; i++) {
-            chickens.get(i).fertilize();
-            edibleEggs.add(chickens.get(i).yield());
-        }
+        edibleEggs = monday.getSevenEggs(chickens);
 
         for (int i = 0; i < 3; i++) {
             cornStalks.get(i).fertilize();
@@ -157,6 +127,14 @@ public class MondayTest {
         }
 
         //When
+//        monday.froilanAteCorn(workerFroiln,earCorns);
+//        monday.froilanAteTomatoes(workerFroiln,tomatoes);
+//        monday.froilanAteEggs(workerFroiln,edibleEggs);
+//
+//        monday.froilindaAteCorn(workerFroiln,earCorns);
+//        monday.froilindaAteTomatoes(workerFroiln,tomatoes);
+//        monday.froilindaAteEggs(workerFroiln,edibleEggs);
+
         int count = 0;
         for (int i = 0; i < earCorns.size(); i++) {
             if (count == 0) {
