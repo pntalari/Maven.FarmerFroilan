@@ -327,11 +327,11 @@ public class Farm {
     public void addCropsToCropRow() {
         this.cropRowList = this.createCropRows();
 
-//        cropRowList.get(0).addCrop(createCornStalk());
-//        cropRowList.get(1).addCrop(createTomatoPlant());
-//        cropRowList.get(2).addCrop(createWheatStalk());
-//        cropRowList.get(3).addCrop(createPotatoPlant());
-//        cropRowList.get(4).addCrop(createCarrotPlant());
+        cropRowList.get(0).addAllCrop(createCornStalk());
+        cropRowList.get(1).addAllCrop(createTomatoPlant());
+        cropRowList.get(2).addAllCrop(createWheatStalk());
+        cropRowList.get(3).addAllCrop(createPotatoPlant());
+        cropRowList.get(4).addAllCrop(createCarrotPlant());
 
     }
 

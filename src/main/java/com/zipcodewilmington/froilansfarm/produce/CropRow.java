@@ -31,6 +31,11 @@ public class CropRow <T extends Crop> implements Producer {
         crops.add(crop);
     }
 
+    public void addAllCrop(List<T> crop) {
+
+        crops.addAll(crop);
+    }
+
     public List<T> getCrops() {
         return crops;
     }
