@@ -10,11 +10,20 @@ import com.zipcodewilmington.froilansfarm.storage.Storage;
 public class CropDuster<T extends Edible> extends Aircraft implements FarmVehicle {
 
     Crop<T> crop;
+    private Boolean isCropDusterFlown = false;
+    private boolean cropRowIsFertilized = false;
+
+    public CropDuster(){
+
+        this.isCropDusterFlown = false;
+        this.cropRowIsFertilized = false;
+    }
 
     public void fertilize(CropRow row) {
         row.getCrops();
-        this.crop.fertilize();
-    }
+         this.crop.fertilize();
+         this.cropRowIsFertilized = false;
+     }
 
     public void operate() {
         this.fly();
@@ -25,6 +34,14 @@ public class CropDuster<T extends Edible> extends Aircraft implements FarmVehicl
     }
 
     public void ride() {
+        this.isCropDusterFlown = true;
+    }
 
+    public Boolean getCropDusterFlown(){
+        return this.isCropDusterFlown = true;
+    }
+
+    public Boolean getCropDusterFertilized(){
+        return this.cropRowIsFertilized = true;
     }
 }
