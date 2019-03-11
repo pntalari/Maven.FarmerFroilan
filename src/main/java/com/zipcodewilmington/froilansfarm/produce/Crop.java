@@ -6,6 +6,8 @@ import com.zipcodewilmington.froilansfarm.interfaces.Producer;
 public abstract class Crop<T extends Edible> implements Producer {
 
     private Boolean hasBeenFertilized;
+
+
     protected Boolean hasBeenHarvested;
 
     public Crop() {
