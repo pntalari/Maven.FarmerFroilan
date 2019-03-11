@@ -1,19 +1,34 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
-import com.zipcodewilmington.froilansfarm.produce.CarrotPlant;
-import com.zipcodewilmington.froilansfarm.produce.CornStalk;
-import com.zipcodewilmington.froilansfarm.produce.CropRow;
-import com.zipcodewilmington.froilansfarm.produce.EarCorn;
+import com.zipcodewilmington.froilansfarm.Farm;
+import com.zipcodewilmington.froilansfarm.factories.CropFactory;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.people.FarmWorker;
+import com.zipcodewilmington.froilansfarm.people.FarmerDecorator;
+import com.zipcodewilmington.froilansfarm.people.Person;
+import com.zipcodewilmington.froilansfarm.people.RiderDecorator;
+import com.zipcodewilmington.froilansfarm.produce.*;
 import com.zipcodewilmington.froilansfarm.storage.Field;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class CropDusterTest {
-    Field field;
+    Field field =  Field.getInstance();
     CropDuster cropDusterObj = new CropDuster();
-    CropRow cropRow = new CropRow();
+    CropRow<CornStalk> cropRow;
+    Person farmer;
+     Farm farm = new Farm();
+
+     @Before
+     public void setup() {
+         List<CornStalk> crop = new CropFactory().createCornStalk(10);
+         cropRow = new CropRow(crop, false);
+     }
+
 
     @Test
     public void makeNoiseTest() {
@@ -24,22 +39,21 @@ public class CropDusterTest {
 
     @Test
     public void fertilizeTest() {
-        //get field croprows
-        //get field crops
-        //fertilize the crops
-
-        Boolean isNotFertilized = false;
-
-        field.getStoredItems().get(0).getCrops();
         cropDusterObj.fertilize(cropRow);
 
-        Assert.assertNotEquals(isNotFertilized, cropDusterObj.getCropDusterFertilized());
-
-
+        List<CornStalk> crops = cropRow.getCrops();
+        for(CornStalk stalk: crops) {
+            Assert.assertTrue(stalk.isFertilized());
+        }
     }
 
     @Test
     public void operateTest() {
+         int expectedMiles = 10;
+
+         cropDusterObj.operate();
+
+         Assert.assertEquals(expectedMiles, cropDusterObj.getTotalMilesFlown());
     }
 
     @Test
@@ -54,5 +68,5 @@ public class CropDusterTest {
 
 
 
-        }
+    }
 }

@@ -23,4 +23,8 @@ public abstract class Crop<T extends Edible> implements Producer {
        return this.hasBeenHarvested = true;
 
     }
+
+    public Boolean isFertilized() {
+        return hasBeenFertilized;
+    }
 }
