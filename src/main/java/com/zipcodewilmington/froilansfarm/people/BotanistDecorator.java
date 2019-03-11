@@ -12,7 +12,14 @@ public class BotanistDecorator extends Person{
         this.p = decoratedPerson;
     }
 
-    public void plant(){
+    private void plant(){
+        //should have access to farm/field
+
+        //get/create crop row
+        //add crop
+
+
+
         System.out.println("Planting");
     }
 

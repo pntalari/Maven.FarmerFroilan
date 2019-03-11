@@ -5,7 +5,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CornStalk extends Crop<EarCorn>{
+public class CornStalk extends Crop<EarCorn>  {
 
     private List<EarCorn> corn = new ArrayList<>();
 

@@ -1,4 +1,10 @@
 package com.zipcodewilmington.froilansfarm.produce;
 
-public class Potato {
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+
+public class Potato implements Edible {
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

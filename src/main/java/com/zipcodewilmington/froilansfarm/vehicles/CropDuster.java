@@ -7,17 +7,27 @@ import com.zipcodewilmington.froilansfarm.produce.CropRow;
 import com.zipcodewilmington.froilansfarm.storage.Field;
 import com.zipcodewilmington.froilansfarm.storage.Storage;
 
+import java.util.List;
+
 public class CropDuster<T extends Edible> extends Aircraft implements FarmVehicle {
 
-    Crop<T> crop;
+    private Boolean isCropDusterFlown = false;
 
-    public void fertilize(CropRow row) {
-        row.getCrops();
-        this.crop.fertilize();
+    public CropDuster(){
+
+        this.isCropDusterFlown = false;
     }
 
+    public void fertilize(CropRow row) {
+        List<Crop> crops = row.getCrops();
+        for(Crop crop : crops){
+            crop.fertilize();
+        }
+
+     }
+
     public void operate() {
-        this.fly();
+        this.fly(10);
     }
 
     public String makeNoise() {
@@ -25,6 +35,10 @@ public class CropDuster<T extends Edible> extends Aircraft implements FarmVehicl
     }
 
     public void ride() {
+        this.isCropDusterFlown = true;
+    }
 
+    public Boolean getCropDusterFlown(){
+        return this.isCropDusterFlown = true;
     }
 }
