@@ -1,16 +1,20 @@
 package com.zipcodewilmington.froilansfarm.storage;
 
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
+import com.zipcodewilmington.froilansfarm.factories.AnimalFactory;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Storage<T> {
 
-    private List<T> itemsToBeStored = new ArrayList<T>();;
+    private List<T> itemsToBeStored;
+    Storage storage;
 
     public Storage() {
-
+        itemsToBeStored = new ArrayList<>();
     }
 
 
@@ -37,6 +41,20 @@ public abstract class Storage<T> {
     }
 
     public List<T> getStoredItems(){
+//        LinkedList<Edible> retrievedItems = new LinkedList<Edible>();
+//        retrievedItems.add(storage.retrieveItems());
+//
+//        while (!retrievedItems.getLast().getLabel().equals(type));
+//        {
+//        retrievedItems.add(storage.retrieveItems());
+//            if(retrievedItems.getLast() == null)
+//                break;
+//        }
+//        for (int i = 0; i <retrievedItems.size() - 2 ; i++) {
+//            storage.addItem(retrievedItems.get(i));
+//        }
+//        return retrievedItems.getLast();
+
         return itemsToBeStored;
     }
 

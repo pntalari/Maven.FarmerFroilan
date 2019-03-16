@@ -7,7 +7,6 @@ import java.util.List;
 
 public class CropRow <T extends Crop> implements Producer {
     private List<T> crops;
-    private T crop;
     private boolean hasBeenHarvested;
 
     public CropRow() {
